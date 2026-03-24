@@ -2,13 +2,13 @@
 
 <img width="815" height="544" alt="preview screenshot" src="https://github.com/user-attachments/assets/e8c2a21f-de85-4a47-9793-4ca7b55e1e57" />
 
-a terminal interface for [claude code](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview) that uses your existing plan subscription. no api tokens needed.
+a terminal interface for [claude chat](https://claude.ai/chat) that uses your existing plan subscription. no api tokens needed.
 
-cchat wraps the `claude` cli in a prompt_toolkit shell with vi keybindings, session persistence, file injection, and a planning workflow that produces task files for autonomous agents.
+cchat wraps the [`claude`](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview) code cli in a prompt_toolkit shell with vi keybindings, session persistence, file injection, and a planning workflow that produces task files for autonomous agents.
 
 ## why
 
-claude code's interactive mode is great, but it takes over your terminal. cchat gives you a persistent chat session you control — attach files, switch modes, plan tasks, hand them off to agents, all without leaving your shell.
+claude code's interactive mode is fine, but it takes over your terminal and isn't a back and forth conversation. cchat gives you a persistent chat session you control. attach files, switch modes, plan tasks, hand them off to agents to implement, all without leaving your shell.
 
 the key insight: `claude --print` lets you have conversations using your plan tokens, not api credits. cchat manages the sessions, context, and workflow around that.
 
@@ -69,36 +69,37 @@ the default. fast, no tool access, just `--print`. good for questions, reviews, 
 
 `/plan danger` — full tool access via `--dangerously-skip-permissions`. the agent can install packages, write test scripts, run your test suite, fetch docs from the web — everything it needs to thoroughly validate a plan before writing it.
 
-> **⚠ danger mode should only be used inside a sandbox.** a devcontainer, docker sandbox, or vm where the blast radius is contained. see [sandboxing](#sandboxing) below.
+>[!WARNING]
+> **danger mode should only be used inside a sandbox.** a devcontainer, docker sandbox, or vm where the blast radius is contained. see [sandboxing](#sandboxing) below.
 
 ## commands
 
-| command | description |
-|---|---|
-| `/attach <path>` | attach file(s) or zip to next message |
-| `/skill <path>` | inject a SKILL.md into next message |
-| `/system [txt]` | show or set system prompt |
-| `/plan [danger]` | switch to planning mode |
-| `/chat` | switch to chat mode |
-| `/handoff [name]` | write task.md when plan is ready |
-| `/compact` | reset session, start fresh |
-| `/clear` | alias for /compact |
-| `/sessions` | list saved sessions |
-| `/usage` | session stats |
-| `/help` | show help |
-| `/q` `/quit` `/exit` | save and quit |
+| command              | description                           |
+| -------------------- | ------------------------------------- |
+| `/attach <path>`     | attach file(s) or zip to next message |
+| `/skill <path>`      | inject a SKILL.md into next message   |
+| `/system [txt]`      | show or set system prompt             |
+| `/plan [danger]`     | switch to planning mode               |
+| `/chat`              | switch to chat mode                   |
+| `/handoff [name]`    | write task.md when plan is ready      |
+| `/compact`           | reset session, start fresh            |
+| `/clear`             | alias for /compact                    |
+| `/sessions`          | list saved sessions                   |
+| `/usage`             | session stats                         |
+| `/help`              | show help                             |
+| `/q` `/quit` `/exit` | save and quit                         |
 
 all commands tab-complete. type `/` then tab to see the full list with descriptions.
 
 ## keybindings
 
-| key | action |
-|---|---|
-| `ctrl+g` | send message ("go") |
-| `enter` | newline (insert mode) or submit /command |
-| `F4` | toggle vi/emacs mode |
-| `ctrl+c` | interrupt running command |
-| `ctrl+d` | save and quit |
+| key      | action                                   |
+| -------- | ---------------------------------------- |
+| `ctrl+g` | send message ("go")                      |
+| `enter`  | newline (insert mode) or submit /command |
+| `F4`     | toggle vi/emacs mode                     |
+| `ctrl+c` | interrupt running command                |
+| `ctrl+d` | save and quit                            |
 
 vi mode is on by default. the prompt shows `❯` in insert mode and `❮` in normal mode. `dd`, `ciw`, `yy`, `p` — all the usual vi motions work in the input buffer.
 
