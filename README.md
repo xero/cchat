@@ -1,12 +1,6 @@
-```
- ┌──────────▄▄▄▄▄▄▄─┐
- │  ▄▄▄▄▄▄  █cchat█ │
- │ ▄█~██~█▄ ▀█▀▀▀▀▀ │
- │  ▀█▀▀█▀  ▀       │
- └──────────────────┘
-```
-
 # cchat
+
+<img width="815" height="544" alt="preview screenshot" src="https://github.com/user-attachments/assets/e8c2a21f-de85-4a47-9793-4ca7b55e1e57" />
 
 a terminal interface for [claude code](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview) that uses your existing plan subscription. no api tokens needed.
 
@@ -176,5 +170,13 @@ if a `CLAUDE.md` or `.claude/CLAUDE.md` exists in the current directory, cchat l
 [CC0](https://creativecommons.org/publicdomain/zero/1.0/) — public domain. do whatever you want.
 
 ## author
+
+```
+ ┌──────────▄▄▄▄▄▄▄─┐
+ │  ▄▄▄▄▄▄  █cchat█ │
+ │ ▄█~██~█▄ ▀█▀▀▀▀▀ │
+ │  ▀█▀▀█▀  ▀       │
+ └──────────────────┘
+```
 
 xero harrison [x-e.ro](https://x-e.ro) · [github.com/xero](https://github.com/xero)
